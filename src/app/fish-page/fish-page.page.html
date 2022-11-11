@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>fishPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="row">
+    <div class="col-sm" *ngFor="let data of fishItems">
+      <app-fish-card [dataFish]="data"></app-fish-card>
+    </div>
+  </div>
+
+</ion-content>
