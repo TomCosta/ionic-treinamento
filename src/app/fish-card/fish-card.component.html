@@ -1,16 +1,18 @@
 <div class="container contSize">
-  <div class="row rowSize">       
+  <div class="rowSize bgGray">       
       <img [src]="dataFish['Species Illustration Photo']?.src" class="imgSize" />
   </div>
-  <div class="row rowSize">
-      <div class="col-sm">
-          Nome: {{ dataFish['Species Name'] }}
-          Descrição: {{ dataFish['Fishing Rate'] }}
-      </div>
+  <div class="rowSize">
+    <ion-row>
+      <ion-col>
+        Nome: {{ dataFish['Species Name'] }}
+        Descrição: {{ dataFish['Fishing Rate'] }}
+      </ion-col>
+    </ion-row>
   </div>
-  <div class="row">
-      <div class="col-sm ion-text-center">
-          <ion-button type="button" class="btn btn-block btn-info" (click)="fishDetails(dataFish)">Ler Mais</ion-button>
-      </div>
-  </div>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button type="button" class="btn btn-block btn-info" (click)="fishDetails(dataFish)">Ler Mais</ion-button>
+    </ion-col>
+  </ion-row>
 </div>

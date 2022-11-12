@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>fishDetails</ion-title>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fish Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <div class="contSize">
+    <div class="rowSize bgGray">       
+      <img [src]="dataFish['img']" class="imgSize" />
+    </div>
+    <div class="rowSize">
+      <ion-row>
+        <ion-col>
+          <p>Nome: {{ dataFish['name'] }}</p>
+          <p>Protein: {{ dataFish['protein'] }}</p>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
 </ion-content>

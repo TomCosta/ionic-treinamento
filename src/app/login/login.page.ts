@@ -1,7 +1,9 @@
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from '../services/auth-service/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { Router } from "@angular/router";
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,9 +17,17 @@ export class LoginPage implements OnInit {
   });
 
   constructor(
+    private alertController: AlertController,
+		private authService: AuthService,
+    private menuCtrl: MenuController,
     public fb: FormBuilder,
     private route: Router
-  ) { }
+  ){    
+  }
+
+  ionViewDidEnter(): void {
+    this.menuCtrl.enable(false);
+  }
 
   ngOnInit() {
   }
@@ -31,15 +41,34 @@ export class LoginPage implements OnInit {
 		return this.signinForm.get('password');
 	}
 
+  async login() {
+		const user = await this.authService.login(this.signinForm.value);
+		if (user) {
+      this.route.navigateByUrl('/fish-page', { replaceUrl: true });
+		} else {
+			this.showAlert('O login falhou', 'tente novamente!');
+		}
+	}
 
-  async loginUser(userName: any, userPsw: any) {
-    console.log('loginUser: ', userName, userPsw);
-    this.route.navigate(['fish-page']);
+	async register() {
+		const user = await this.authService.register(this.signinForm.value);
+		if (user) {
+			this.route.navigateByUrl('/fish-page', { replaceUrl: true });
+		} else {
+			this.showAlert('O registro falhou', 'tente novamente!');
+		}
+	}
+
+  async showAlert(header, message) {
+		const alert = await this.alertController.create({
+			header,
+			message,
+			buttons: ['Entendi']
+		});
+		await alert.present();
   }
 
-  register(){
-    console.log('register');
-    this.route.navigate(['fish-page']);
+  ionViewDidLeave(): void {
+    this.menuCtrl.enable(true);
   }
-
 }

@@ -1,13 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>fishPage</ion-title>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>FishPage</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div class="row">
-    <div class="col-sm" *ngFor="let data of fishItems">
+  <div class="ion-padding">
+    <div class="" *ngFor="let data of fishItems">
       <app-fish-card [dataFish]="data"></app-fish-card>
     </div>
   </div>

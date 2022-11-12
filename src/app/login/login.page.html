@@ -15,9 +15,10 @@
 
     <div class="ion-text-center">
       <br>
-      <ion-button type="submit" expand="block" [disabled]="!signinForm.valid" (click)="loginUser()">Entrar</ion-button>
+      <ion-button type="submit" expand="block" [disabled]="!signinForm.valid" (click)="login()">Entrar</ion-button>
     </div>
-    <div class="redirectToLogin text-center">
+    <div class="redirectToLogin ion-text-center">
+      <br>
       <a>Não possui uma conta?
         <span class="redirect" (click)="register()">
           <strong class="text-info">Cadastrar-se</strong>

@@ -3,6 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: '',
+    appId: '',
+    storageBucket: '',
+    apiKey: '',
+    authDomain: '',
+    messagingSenderId: '',
+  },
   production: false,
   apiBase: 'https://www.fishwatch.gov/api/'
 };

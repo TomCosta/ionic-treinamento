@@ -16,11 +16,9 @@ export class FishPagePage implements OnInit {
     private apiServ: ApiService,
     private route: Router
   ){
-    console.log('Constructor');
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
     this.getFishSpecies();
   }
 

@@ -17,9 +17,14 @@ export class FishCardComponent implements OnInit {
   ngOnInit() {}
 
   fishDetails(fishData) {
+    let dataFish = {
+      img: fishData['Species Illustration Photo']?.src,
+      name: fishData['Species Name'],
+      protein: fishData['Protein']
+    }
     let navigationExtras: NavigationExtras = {
       state: {
-        data: fishData
+        data: dataFish
       }
     }
     this.route.navigate(['fish-details'], navigationExtras);

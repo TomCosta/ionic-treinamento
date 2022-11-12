@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "aplicafish": {
+      "hosting": {
+        "app": [
+          "aplicafish"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "aplicafish"
+  }
+}
