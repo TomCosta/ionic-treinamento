@@ -16,5 +16,9 @@ export class ApiService {
   getFishSpecies():Observable<any[]> {
     return this.api.get<any>(environment.apiBase + 'species').pipe(map((el) => el.slice(0, 30)));
   }
+
+  postFishSpecies(fishes: any):Observable<any[]> {
+    return this.api.post<any>(environment.apiBase + 'species', fishes);
+  }
   
 }

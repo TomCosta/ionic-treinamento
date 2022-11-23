@@ -1,6 +1,7 @@
 import { AuthService } from './services/auth-service/auth.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NetworkServiceService } from './services/on-off/network.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -17,9 +18,16 @@ export class AppComponent {
   ];
 
   constructor(
+    private netServ: NetworkServiceService,
     private authService: AuthService,
     private route: Router
-  ) {}
+  ) {
+    this.recoverOffline();
+  }
+
+  recoverOffline() {
+    this.netServ.checkNetwork();
+  }
 
   logout() {
     this.authService.logout().then(()=> {

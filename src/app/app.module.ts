@@ -12,6 +12,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Drivers, Storage } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,6 +23,10 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    IonicStorageModule.forRoot({
+      name: 'fish_db',
+      driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage]
+    }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
