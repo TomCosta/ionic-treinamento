@@ -1,9 +1,9 @@
 import { StorageServiceService } from '../services/storage-service/storage-service.service';
 import { NetworkServiceService } from './../services/on-off/network.service';
 import { ApiService } from 'src/app/services/api-service/api.service';
-import { NavigationExtras } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-fish-page',
   templateUrl: './fish-page.page.html',
@@ -37,11 +37,15 @@ export class FishPagePage implements OnInit {
 
   getFishSpecies() {
     this.apiServ.getFishSpecies()
-    .subscribe((res) => {
+    .subscribe(
+      (res) => {
       this.fishItems = res;
       this.storageServ.setItem('fishData', res);
       console.log('data Online: ', res);
-    });
+      },
+      err => console.log('Error: ', err),
+      () => console.log('Complete: ')
+    );
   }
 
   async getOffLineFishes() {

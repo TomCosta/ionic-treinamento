@@ -47,6 +47,7 @@ export class LoginPage implements OnInit {
       this.route.navigateByUrl('/fish-page', { replaceUrl: true });
 		} else {
 			this.showAlert('O login falhou', 'tente novamente!');
+      this.route.navigateByUrl('/login', { replaceUrl: true });
 		}
 	}
 
